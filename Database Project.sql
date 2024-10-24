@@ -1,14 +1,13 @@
 CREATE TABLE [EMPLOYEE] (
-  [EMP_ID] <type>,
-  [SUP_ID] <type>,
-  [EMP_FNAME] <type>,
-  [EMP_LNAME] <type>,
-  [EMP_ADDRESS] <type>,
-  [EMP_PHONE] <type>,
-  [EMP_DOB] <type>,
-  [EMP_TITLE] <type>,
-  [TYPE] <type>,
-  [MANAGER_ID] <type>,
+  [EMP_ID] INT,
+  [EMP_FNAME] VARCHAR(50),
+  [EMP_LNAME] VARCHAR(50),
+  [EMP_ADDRESS] VARCHAR(100),
+  [EMP_PHONE] VARCHAR(15),
+  [EMP_DOB] DATE,
+  [EMP_TITLE] VARCHAR(50),
+  [TYPE] VARCHAR(20),
+  [MANAGER_ID] INT,
   PRIMARY KEY ([EMP_ID]),
   CONSTRAINT [FK_EMPLOYEE.EMP_ID]
     FOREIGN KEY ([EMP_ID])
