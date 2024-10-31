@@ -90,8 +90,6 @@ END;
 GO
 
 
-
-
 CREATE TABLE [CHEF] (
   [EMP_ID] INT,
   PRIMARY KEY ([EMP_ID])
