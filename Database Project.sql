@@ -112,6 +112,20 @@ BEGIN
 END;
 GO
 
+CREATE TRIGGER trg_disjoint_salary_manager
+ON SALARY
+AFTER INSERT
+AS
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM MANAGER WHERE MANAGER.EMP_ID = (SELECT EMP_ID FROM inserted)) AND 
+       NOT EXISTS (SELECT 1 FROM CHEF WHERE CHEF.EMP_ID = (SELECT EMP_ID FROM inserted))
+    BEGIN
+        ROLLBACK;
+        RAISERROR ('Only Managers or Chefs can have salary entries', 16, 1);
+    END
+END;
+GO
+
 CREATE TRIGGER trg_disjoint_manager_salary
 ON MANAGER
 AFTER INSERT
@@ -139,3 +153,4 @@ BEGIN
     END
 END;
 GO
+
