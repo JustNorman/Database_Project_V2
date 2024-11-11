@@ -36,7 +36,7 @@ GROUP BY
     S.PROD_SUBCAT_DESC;
 
 
---Step 3
+--Step 3 needs to be modified
 SELECT 
     P.PROD_ID,
     SUM(D.ORD_PRICE) AS Total_Amount,
