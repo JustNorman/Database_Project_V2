@@ -3,6 +3,12 @@ VALUES
 (101, 'Alice', 'Brown', '789 Pine St', '555-1010', 'Manager'),
 (102, 'Bob', 'White', '321 Oak St', '555-2020', 'Chef');
 
+INSERT INTO CHEF (EMP_ID)
+VALUES 
+(102); -- EMP_ID 102 for Bob, who is a Chef
+
+
+
 INSERT INTO PROD_CATEGORY (PROD_CAT_ID, PROD_CAT_DESC) --WORKS
 VALUES 
 (1, 'Beverages'),
