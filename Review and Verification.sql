@@ -55,7 +55,7 @@ GROUP BY
     P.PROD_ID;
 
 
---Step 4
+--Step 4 works
 SELECT 
     P.PROD_ID,
     P.SERV_SIZE,
