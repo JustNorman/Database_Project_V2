@@ -122,7 +122,7 @@ FROM
     ) AS PizzaOrders;
 
 
---Step 7
+--Step 7 may need to be modified because it shows a lot of zeros
 SELECT 
     C.PROD_CAT_DESC,
     AVG(P.PROD_PRICE) AS Average_Price
