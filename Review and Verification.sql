@@ -157,7 +157,7 @@ WHERE
     S.PROD_SUBCAT_DESC IN ('Pizza', 'Pasta');
 
 
---Step 9
+--Step 9 needs more testing
 -- Calculate the total quantity sold for each product
 WITH TotalQuantity AS (
     SELECT 
