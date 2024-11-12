@@ -212,7 +212,7 @@ WHERE
     TQ.Total_Quantity_Sold > AQ.Avg_Quantity_Sold;
 
 
---Step 10
+--Step 10 works?
 -- Calculate the average price for each product
 WITH ProductAveragePrice AS (
     SELECT 
