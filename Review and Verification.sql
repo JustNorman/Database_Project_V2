@@ -19,7 +19,7 @@ GROUP BY
     C.PROD_CAT_DESC;
 
 
---Step 2
+--Step 2 works
 SELECT 
     S.PROD_SUBCAT_DESC,
     SUM(D.ORD_PRICE) AS Total_Amount,
