@@ -19,6 +19,23 @@ VALUES
 (102, 1, '2023-01-20', '2025-01-20'), -- Chef Bob took Exam 1
 (102, 2, '2023-02-25', '2025-02-25'); -- Chef Bob took Exam 2
 
+INSERT INTO MANAGER (EMP_ID)
+VALUES 
+(101); -- Assuming EMP_ID 101 for Alice Brown, who is a Manager which is true
+
+INSERT INTO MAN_CERT (CERT_ID, CERT_FEE, CERT_DATE_OFFER)
+VALUES 
+(1, 120.00, '2023-05-01'),
+(2, 180.75, '2023-06-15'),
+(3, 135.50, '2023-07-20'),
+(4, 155.00, '2023-08-25');
+
+
+INSERT INTO MAN_CRED_BRIDGE (EMP_ID, CERT_ID, EXAM_DATE, CERT_EXP_DATE)
+VALUES 
+(101, 1, '2023-05-10', '2025-05-10'), -- Manager Alice took Exam 1
+(101, 2, '2023-06-20', '2025-06-20'); -- Manager Alice took Exam 2
+
 
 
 INSERT INTO PROD_CATEGORY (PROD_CAT_ID, PROD_CAT_DESC) --WORKS
