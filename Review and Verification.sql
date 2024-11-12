@@ -156,6 +156,17 @@ JOIN
 WHERE 
     S.PROD_SUBCAT_DESC IN ('Pizza', 'Pasta');
 
+--Fixes and modify the PROD_SUBCATEGORY table
+UPDATE PROD_SUBCATEGORY 
+SET PROD_SUBCAT_DESC = 'Pizza' 
+WHERE PROD_SUBCAT_DESC = 'Soft Drinks';
+
+--Same as above
+UPDATE PROD_SUBCATEGORY 
+SET PROD_SUBCAT_DESC = 'Pasta' 
+WHERE PROD_SUBCAT_DESC = 'Chips';
+
+
 
 --Step 9 needs more testing
 -- Calculate the total quantity sold for each product
