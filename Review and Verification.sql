@@ -36,7 +36,7 @@ GROUP BY
     S.PROD_SUBCAT_DESC;
 
 
---Step 3 needs to be modified
+--Step 3 works now
 SELECT 
     P.PROD_ID,
     SUM(D.ORD_PRICE) AS Total_Amount,
@@ -86,7 +86,7 @@ JOIN
     PROD_CATEGORY C ON S.PROD_CAT_ID = C.PROD_CAT_ID;
 
 
---Step 6 may need to be modified
+--Step 6 works now
 SELECT 
     D.ORD_ID,
     COUNT(D.PROD_ID) AS Pizza_Count
@@ -125,7 +125,7 @@ FROM
 --Step 7 may need to be modified because it shows a lot of zeros
 SELECT 
     C.PROD_CAT_DESC,
-    AVG(P.PROD_PRICE) AS Average_Price
+    ROUND(AVG(NULLIF(P.PROD_PRICE, 0)), 2) AS Average_Price
 FROM 
     PRODUCT P
 JOIN 
@@ -134,6 +134,7 @@ JOIN
     PROD_CATEGORY C ON S.PROD_CAT_ID = C.PROD_CAT_ID
 GROUP BY 
     C.PROD_CAT_DESC;
+
 
 
 --Step 8 works now
