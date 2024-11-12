@@ -86,7 +86,7 @@ JOIN
     PROD_CATEGORY C ON S.PROD_CAT_ID = C.PROD_CAT_ID;
 
 
---Step 6
+--Step 6 may need to be modified
 SELECT 
     D.ORD_ID,
     COUNT(D.PROD_ID) AS Pizza_Count
