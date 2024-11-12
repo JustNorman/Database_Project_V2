@@ -136,7 +136,7 @@ GROUP BY
     C.PROD_CAT_DESC;
 
 
---Step 8 need to insert data to the customer table
+--Step 8 works now
 SELECT DISTINCT
     C.CUST_ID,
     C.CUST_FNAME,
