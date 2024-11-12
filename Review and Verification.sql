@@ -1,4 +1,4 @@
---Step 1
+--Step 1 works
 USE [Papa Georgios]; -- Ensure you're in the correct database
 
 SELECT 
