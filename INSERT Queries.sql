@@ -3,6 +3,19 @@ VALUES
 (101, 'Alice', 'Brown', '789 Pine St', '555-1010', 'Manager'),
 (102, 'Bob', 'White', '321 Oak St', '555-2020', 'Chef');
 
+INSERT INTO JOB_TITLE (EMP_TITLE, JOB_DESC, JOB_SALARY)
+VALUES 
+('Manager', 'Oversees operations and staff', 65000.00),
+('Chef', 'Prepares and cooks meals', 55000.00),
+('Server', 'Serves food and beverages to customers', 30000.00),
+('Dishwasher', 'Cleans dishes and kitchen equipment', 25000.00);
+
+INSERT INTO EMPLOYMENT_HISTORY_BRIDGE (EMP_ID, EMP_TITLE, START_DATE, END_DATE, SALARY)
+VALUES 
+(101, 'Manager', '2020-01-01', '2023-01-01', 60000.00), -- Employment history for Alice
+(102, 'Chef', '2021-06-01', '2023-06-01', 50000.00);    -- Employment history for Bob
+
+
 INSERT INTO CHEF (EMP_ID)
 VALUES 
 (102); -- EMP_ID 102 for Bob, who is a Chef
