@@ -169,8 +169,11 @@ WHERE PROD_SUBCAT_DESC = 'Chips';
 */
 
 
---Step 9 needs more testing
--- Calculate the total quantity sold for each product
+--Step 9 works now
+/* The following is the only way I was able to get this part to work*/
+SELECT * FROM ORDER_DETAIL;
+
+-- Check TotalQuantity CTE
 WITH TotalQuantity AS (
     SELECT 
         PROD_ID,
@@ -178,27 +181,58 @@ WITH TotalQuantity AS (
     FROM 
         (SELECT PROD_ID, COUNT(*) AS Quantity_Sold 
          FROM ORDER_DETAIL 
-         GROUP BY PROD_ID) DQ
+         GROUP BY PROD_ID) AS SubQuery
+    GROUP BY 
+        PROD_ID
+)
+SELECT * FROM TotalQuantity;
+
+-- Check AverageQuantity CTE
+WITH TotalQuantity AS (
+    SELECT 
+        PROD_ID,
+        SUM(Quantity_Sold) AS Total_Quantity_Sold
+    FROM 
+        (SELECT PROD_ID, COUNT(*) AS Quantity_Sold 
+         FROM ORDER_DETAIL 
+         GROUP BY PROD_ID) AS SubQuery
     GROUP BY 
         PROD_ID
 ),
-
--- Calculate the average quantity sold across all products
 AverageQuantity AS (
     SELECT 
         AVG(Total_Quantity_Sold) AS Avg_Quantity_Sold
     FROM 
         TotalQuantity
 )
+SELECT * FROM AverageQuantity;
 
--- Select products whose total quantity sold is greater than the average quantity sold
+-- Full Query without WHERE Clause to See Raw Results
+WITH TotalQuantity AS (
+    SELECT 
+        PROD_ID,
+        SUM(Quantity_Sold) AS Total_Quantity_Sold
+    FROM 
+        (SELECT PROD_ID, COUNT(*) AS Quantity_Sold 
+         FROM ORDER_DETAIL 
+         GROUP BY PROD_ID) AS SubQuery
+    GROUP BY 
+        PROD_ID
+),
+AverageQuantity AS (
+    SELECT 
+        AVG(Total_Quantity_Sold) AS Avg_Quantity_Sold
+    FROM 
+        TotalQuantity
+)
 SELECT 
     P.PROD_ID,
     P.PROD_PRICE,
     P.SERV_SIZE,
     S.PROD_SUBCAT_DESC,
     C.PROD_CAT_DESC,
-    TQ.Total_Quantity_Sold
+    TQ.Total_Quantity_Sold,
+    AQ.Avg_Quantity_Sold
 FROM 
     TotalQuantity TQ
 JOIN 
@@ -206,10 +240,9 @@ JOIN
 JOIN 
     PROD_SUBCATEGORY S ON P.PROD_SUBCAT_ID = S.PROD_SUBCAT_ID
 JOIN 
-    PROD_CATEGORY C ON S.PROD_CAT_ID = C.PROD_CAT_ID,
-    AverageQuantity AQ
-WHERE 
-    TQ.Total_Quantity_Sold > AQ.Avg_Quantity_Sold;
+    PROD_CATEGORY C ON S.PROD_CAT_ID = C.PROD_CAT_ID
+CROSS JOIN 
+    AverageQuantity AQ;
 
 
 --Step 10 works?
