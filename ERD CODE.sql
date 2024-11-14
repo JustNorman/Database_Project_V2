@@ -51,7 +51,10 @@ ON SALARY
 AFTER INSERT
 AS
 BEGIN
-    IF EXISTS (SELECT 1 FROM WAGE WHERE WAGE.EMP_ID = (SELECT EMP_ID FROM inserted))
+    IF EXISTS (
+        SELECT 1 FROM WAGE 
+        WHERE WAGE.EMP_ID = (SELECT TOP 1 EMP_ID FROM inserted)
+    )
     BEGIN
         ROLLBACK;
         RAISERROR ('Employee already has a wage entry', 16, 1);
@@ -65,7 +68,10 @@ ON WAGE
 AFTER INSERT
 AS
 BEGIN
-    IF EXISTS (SELECT 1 FROM SALARY WHERE SALARY.EMP_ID = (SELECT EMP_ID FROM inserted))
+    IF EXISTS (
+        SELECT 1 FROM SALARY 
+        WHERE SALARY.EMP_ID = (SELECT TOP 1 EMP_ID FROM inserted)
+    )
     BEGIN
         ROLLBACK;
         RAISERROR ('Employee already has a salary entry', 16, 1);
