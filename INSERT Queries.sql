@@ -49,6 +49,15 @@ VALUES
 (101, 1, '2023-05-10', '2025-05-10'), -- Manager Alice took Exam 1
 (101, 2, '2023-06-20', '2025-06-20'); -- Manager Alice took Exam 2
 
+INSERT INTO SHIFT (SHIFT_ID, SHIFT_START, SHIFT_END, SHIFT_BREAK)
+VALUES 
+(1, '2023-04-01 08:00:00', '2023-04-01 16:00:00', '30 minutes'),
+(2, '2023-04-01 09:00:00', '2023-04-01 17:00:00', '45 minutes'),
+(3, '2023-04-02 08:00:00', '2023-04-02 16:00:00', '30 minutes'),
+(4, '2023-04-02 09:00:00', '2023-04-02 17:00:00', '45 minutes');
+
+
+
 
 
 INSERT INTO PROD_CATEGORY (PROD_CAT_ID, PROD_CAT_DESC) --WORKS
