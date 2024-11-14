@@ -71,7 +71,7 @@ GROUP BY
     P.PROD_ID, P.SERV_SIZE;
 
 
---Step 5
+--Step 5 works
 SELECT 
     P.PROD_ID,
     P.PROD_PRICE,
