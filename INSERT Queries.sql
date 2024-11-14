@@ -56,6 +56,15 @@ VALUES
 (3, '2023-04-02 08:00:00', '2023-04-02 16:00:00', '30 minutes'),
 (4, '2023-04-02 09:00:00', '2023-04-02 17:00:00', '45 minutes');
 
+INSERT INTO WAGE (EMP_ID, HOURLY_RATE)
+VALUES 
+(101, 25.00), -- Hourly rate for Alice
+(102, 20.00); -- Hourly rate for Bob
+
+INSERT INTO CLOCK_IN_BRIDGE (SHIFT_ID, EMP_ID, START_TIME, END_TIME)
+VALUES 
+(1, 101, '2023-04-01 08:00:00', '2023-04-01 16:00:00'), -- Shift 1 for Alice
+(2, 102, '2023-04-01 09:00:00', '2023-04-01 17:00:00'); -- Shift 2 for Bob
 
 
 
